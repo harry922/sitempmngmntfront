@@ -1,0 +1,70 @@
+<top-nav></top-nav>
+
+<h1>Candidates List </h1>
+
+<div class="alert-danger">{{errorMessage}}</div>
+
+<div class="input-group">
+    <input type="text" class="form-control search" 
+            placeholder="Search"    
+            [(ngModel)]="searchText"
+            aria-describedby="basic-addon1">
+    <span>
+        <button class="btn btn-success add-candidate" 
+        (click) = 'add()'
+        title="Add Customer"> Add Candidate </button>
+    </span>            
+</div> 
+<table class="table table-bordered ele-sticky">
+    <thead>
+        <tr>
+            <th> Candidate Name</th>
+            <th> Candidate Email </th>
+            <th> Candidate Phone </th>
+            <th> Skill Set </th>
+            <th> Candidate Company Name </th> 
+            <th> Candidate Company Contact </th>
+        </tr>
+    </thead>
+</table>
+<table class="table table-bordered ele-sticky-body">
+    <tbody>
+        <tr *ngFor="let interview of interviews | search: searchText"
+            [ngClass]="{'btn-primary': interview.summaryId == currentId }">
+            <td>{{interview.candidateName}}</td>
+            <td>{{interview.candidateEmail}}</td>
+            <td>{{interview.candidatePhone}}</td>
+            <td>{{interview.skillSet}}</td>
+            <td>{{interview.candidateCompanyName}}</td>
+            <td>{{interview.candidateCompanyContact}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!--
+    Writen with different Data Base strategy
+     
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Technology</th>
+            <th>Employer</th> 
+            <th>Actions</th>           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cust of customers | search: searchText"
+            [ngClass]="{'btn-primary': cust.candidateId == currentId }">
+            <td>{{cust.fullName}}</td>
+            <td>{{cust.technology}}</td>
+            <td>{{cust.candidateEmployerName}}</td>            
+            <td style="width: 155px;">
+                <i class="btn btn-primary" (click)="edit(cust.candidateId)" title="Edit"> Edit </i>
+                <span style="padding: 0 7px;" ></span>
+                <i class="btn btn-danger" (click)="delete(cust.candidateId)"  title="Delete"> Delete</i>
+            </td>
+        </tr>
+    </tbody>
+</table>
+-->

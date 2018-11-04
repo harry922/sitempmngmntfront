@@ -1,0 +1,34 @@
+.input-group{
+    width: 100%;
+}
+.search{
+    width: 50.5%;
+
+}
+.add-prime-vendor{
+    width: 200px;
+    margin-left:16%;
+}
+
+table {
+    table-layout: fixed;
+}
+table th, td{   
+    width: 250px;
+    overflow: hidden;
+}
+table thead tr th{
+    background-color: lightgray;
+    border: 1px solid gray;
+    border-top-color:1px solid gray;  
+}
+.ele-sticky{
+    position: sticky;
+    top: 0;
+}
+
+.ele-sticky-body{
+    position: relative;
+    z-index: -1;
+    top: -20px;
+}

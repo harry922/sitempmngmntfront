@@ -1,0 +1,128 @@
+<top-nav></top-nav>
+<h1>{{title}} Interview</h1>
+<hr>
+
+<form [formGroup]="interviewForm" (ngSubmit)="save()" novalidate>
+    <div class="form-group row">
+        <label for="" class="col-md-12">candidate name</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="candidateName">
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="candidateName.invalid && (candidateName.dirty || submitted)">
+                <div *ngIf="candidateName.errors.required">
+                    Candidate Name Required!
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row" style= "display:none;">
+        <label for="" class="col-md-12">Interview ID</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control"
+                    formControlName="interviewId" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">prime vendor name</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="primeVendorName">
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="primeVendorName.invalid && (primeVendorName.dirty || submitted)">
+                <div *ngIf="primeVendorName.errors.required">
+                    Prime Vendor Name Required!
+                </div>
+            </div>
+        </div>
+    </div>
+    <div formGroupName = "clientDetails">
+        <div class="form-group row">
+            <label for="" class="col-md-12">client name</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" formControlName="clientName">
+            </div>
+            <div class="col-md-6">
+                <div class="error" *ngIf="clientName.invalid && (clientName.dirty || submitted)">
+                    <div *ngIf="clientName.errors.required">
+                        Client Name Required!
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <div formGroupName = "location">
+            <div class="form-group row">
+                <label for="" class="col-md-12">state name</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" formControlName="stateName">
+                </div>
+                <div class="col-md-6">
+                    <div class="error" *ngIf="stateName.invalid && (stateName.dirty || submitted)">
+                        <div *ngIf="stateName.errors.required">
+                            State Name Required!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-md-12">country name</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" formControlName="countryName">
+                </div>
+                <div class="col-md-6">
+                    <div class="error" *ngIf="countryName.invalid && (countryName.dirty || submitted)">
+                        <div *ngIf="countryName.errors.required">
+                            Country Name Required!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-md-12">city name</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" formControlName="cityName">
+                </div>
+                <div class="col-md-6">
+                    <div class="error" *ngIf="cityName.invalid && (cityName.dirty || submitted)">
+                        <div *ngIf="cityName.errors.required">
+                            City Name Required!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-md-12">street address</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" formControlName="streetAddress">
+                </div>
+                <div class="col-md-6">
+                    <div class="error" *ngIf="streetAddress.invalid && (streetAddress.dirty || submitted)">
+                        <div *ngIf="streetAddress.errors.required">
+                            Street Address Required!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-md-12">pincode</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" formControlName="pincode">
+                </div>
+                <div class="col-md-6">
+                    <div class="error" *ngIf="pincode.invalid && (pincode.dirty || submitted)">
+                        <div *ngIf="pincode.errors.required">
+                            Pincode Required!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="submit" class="btn btn-primary" value="Save" />
+            <input type="button" class="btn btn-warning" value="Cancel" (click)="cancel()">
+        </div>
+
+    </div>
+</form>

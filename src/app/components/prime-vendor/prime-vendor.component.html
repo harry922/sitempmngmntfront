@@ -1,0 +1,86 @@
+<top-nav></top-nav>
+<h1>Prime vendor List </h1>
+
+<div class="alert-danger">{{errorMessage}}</div>
+
+<div class="input-group">
+    <input type="text" class="form-control search" 
+            placeholder="Search"    
+            [(ngModel)]="searchText"
+            aria-describedby="basic-addon1">
+    <span>
+        <button class="btn btn-success add-prime-vendor" 
+        (click) = 'add()'
+        title="Add prime vendor"> Add Prime vendor </button>
+    </span>
+            
+</div> 
+<table class="table table-bordered ele-sticky">
+    <thead>
+        <tr>
+            <th> PV Sales Name</th>
+            <th> PV Sales Email </th>  
+            <th> PV Sales Phone </th>
+            <th> PV Sales LinkedIn </th>
+            <th> PV Recruiter Name </th>  
+            <th> PV Recruiter Email </th>   
+            <th> PV Recruiter Phone </th>
+            <th> PV Recruiter LinkedIn </th>
+        </tr>
+    </thead>
+</table>
+<table class="table table-bordered ele-sticky-body">
+    <tbody>
+        <tr *ngFor="let interview of interviews | search: searchText"
+            [ngClass]="{'btn-primary': interview.summaryId == currentId }">
+            <td>{{interview.pvsalesName}}</td>
+            <td>{{interview.pvsalesEmail}}</td>
+            <td>{{interview.pvsalesPhone}}</td>
+            <td>{{interview.pvsalesLinkedIn}}</td>
+            <td>{{interview.pvrecruiterName}}</td>
+            <td>{{interview.pvrecruiterEmail}}</td>
+            <td>{{interview.pvrecruiterPhone}}</td>
+            <td>{{interview.pvrecruiterLinkedIn}}</td>
+        </tr>
+    </tbody>
+</table>
+<!-- 
+Writen with different Data Base structure
+Has update and delete features
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Company name</th>
+            <th>Recruiters list</th>
+            <th>Managers list</th> 
+            <th>state_name</th> 
+            <th>country name</th>
+            <th>city name</th>             
+            <th>street_address</th> 
+            <th>pincode</th>                                     
+            <th>Actions</th>           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let primeVendor of primeVendors | search: searchText"
+        [ngClass]="{'btn-primary': primeVendor.pvId == currentId }">
+            <td>{{primeVendor.companyName}}</td>
+            <td><i class="btn btn-primary" (click)="edit(primeVendor.pvID)" title="Edit"> View Recruiters </i> </td>
+            <td><i class="btn btn-primary" (click)="edit(primeVendor.pvID)" title="Edit"> View Managres </i> </td> 
+            <td>{{primeVendor.location.stateName}}</td>
+            <td>{{primeVendor.location.countryName}}</td>
+            <td>{{primeVendor.location.cityName}}</td>
+            <td>{{primeVendor.location.streetAddress}}</td>
+            <td>{{primeVendor.location.pincode}}</td>       
+    -->
+          <!--  <td style="width: 155px;">
+                <i class="btn btn-primary" (click)="edit(primeVendor.pvId)" title="Edit"> Edit </i>
+                <span style="padding: 0 7px;" ></span>
+                <i class="btn btn-danger" (click)="delete(primeVendor.pvId)"  title="Delete"> Delete</i>
+            </td> -->
+    <!--        
+        </tr>
+    </tbody>
+</table>
+-->

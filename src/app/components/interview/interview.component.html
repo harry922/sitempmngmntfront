@@ -1,0 +1,77 @@
+<top-nav></top-nav>
+<h1>Interviews List </h1>
+
+<div class="alert-danger">{{errorMessage}}</div>
+
+<div class="input-group">
+    <input type="text" class="form-control search" 
+            placeholder="Search"    
+            [(ngModel)]="searchText"
+            aria-describedby="basic-addon1">
+    <span>
+        <button class="btn btn-success add-candidate" 
+        (click) = 'add()'
+        title="Add interview"> Add Interview </button>
+    </span>
+            
+</div> 
+<table class="table table-bordered ele-sticky">
+    <thead>
+        <tr>
+            <th> Date of Entry</th> 
+            <th> Date of Interview </th>
+            <th> SIT Sales Name</th>                      
+            <th> SIT Recruiter Name </th>
+        </tr>
+    </thead>
+</table>
+<table class="table table-bordered ele-sticky-body">
+    <tbody>
+        <tr *ngFor="let interview of interviews | search: searchText"
+            [ngClass]="{'btn-primary': interview.summaryId == currentId }">
+            <td>{{interview.dateofEntry}}</td>
+            <td>{{interview.dateofInterview}}</td>
+            <td>{{interview.sitsalesName}}</td>
+            <td>{{interview.sitrecruiterName}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!--
+    Writen with different Data Base structure
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Candidate name</th>
+            <th>Client name</th>
+            <th>Prime Vendor name</th> 
+            <th>State</th> 
+            <th>country name</th>
+            <th>city name</th>             
+            <th>street_address</th> 
+            <th>pincode</th>                                     
+            <th>Actions</th>           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let interview of interviews | search: searchText"
+        [ngClass]="{'btn-primary': interview.interviewId == currentId }">
+            <td>{{interview.candidateName}}</td>
+            <td>{{interview.clientDetails.clientName}}</td>
+            <td>{{interview.primeVendorName}}</td> 
+            <td>{{interview.clientDetails.location.stateName}}</td>
+            <td>{{interview.clientDetails.location.countryName}}</td>
+            <td>{{interview.clientDetails.location.cityName}}</td>
+            <td>{{interview.clientDetails.location.streetAddress}}</td>
+            <td>{{interview.clientDetails.location.pincode}}</td>       
+          
+            <td style="width: 155px;">
+                <i class="btn btn-primary" (click)="edit(interview.interviewId)" title="Edit"> Edit </i>
+                <span style="padding: 0 7px;" ></span>
+                <i class="btn btn-danger" (click)="delete(interview.interviewId)"  title="Delete"> Delete</i>
+            </td>
+        </tr>
+    </tbody>
+</table>
+-->

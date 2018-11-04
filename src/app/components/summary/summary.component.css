@@ -1,0 +1,36 @@
+.btn-bs-file{
+    position:relative;
+}
+.btn-bs-file input[type="file"]{
+    position: absolute;
+    top: -9999999;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    width:0;
+    height:0;
+    outline: none;
+    cursor: inherit;
+}
+
+table {
+    table-layout: fixed;
+}
+table th, td{   
+    width: 250px;
+    overflow: hidden;
+}
+table thead tr th{
+    background-color: lightgray;
+    border: 1px solid gray;
+    border-top-color:1px solid gray;  
+}
+.ele-sticky{
+    position: sticky;
+    top: 0;
+}
+
+.ele-sticky-body{
+    position: relative;
+    z-index: -1;
+    top: -20px;
+}

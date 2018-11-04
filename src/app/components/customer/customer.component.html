@@ -1,0 +1,77 @@
+<top-nav></top-nav>
+
+<h1>{{title}} Candidate</h1>
+<hr>
+<div>{{errorMessage}}</div>
+<form [formGroup]="customerForm" (ngSubmit)="save()" novalidate>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Name</label>
+        <div class="col-md-4">
+            <input type="text"  class="form-control"
+                   formControlName="fullName">
+        </div>
+        
+        <div class="col-md-6">
+            <div class="error" *ngIf="fullName.invalid && (fullName.dirty || submitted)">
+                <div *ngIf="fullName.errors.required">
+                    Name is required
+                </div>
+                <div *ngIf="fullName.errors.minlength">
+                   Min. 3 charaters
+                </div>
+                <div *ngIf="fullName.errors.maxlength">
+                    Must not exceed 30 charaters
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row" style= "display:none;">
+        <label for="" class="col-md-12">Candidate ID</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control"
+                    formControlName="candidateId" >
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="" class="col-md-12">Technology</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control"
+                    formControlName="technology" >
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="technology.invalid && (technology.dirty || submitted)">
+                 <div *ngIf="technology.errors.required">
+                    Address is required
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Employer</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control"
+                   formControlName="candidateEmployerName">
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="candidateEmployerName.invalid && (candidateEmployerName.dirty || submitted)">
+                <div *ngIf="candidateEmployerName.errors.required">
+                    Employer is Required
+                </div>
+            </div>            
+        </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-12">
+           <input type="submit" 
+                  class="btn btn-primary" 
+                  value="Save" />
+            <input type="button" 
+                   class="btn btn-warning" 
+                   value="Cancel"
+                   (click)="cancel()">
+      </div>
+
+    </div>
+</form>

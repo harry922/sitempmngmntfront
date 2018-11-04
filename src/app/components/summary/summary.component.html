@@ -1,0 +1,94 @@
+<top-nav></top-nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9">
+                <input
+                type="file" 
+                accept=".xlsx" 
+                #fileInput>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+                <button class="btn btn-success" (click)="fileUpload()">Upload File</button> 
+                <button class="btn btn-success" (click)="getProfile()">Refresh</button> 
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="input-group">
+    <input type="text" class="form-control search" 
+            placeholder="Search"    
+            [(ngModel)]="searchText"
+            aria-describedby="basic-addon1">
+                
+</div> 
+<table class="table table-bordered ele-sticky">   
+    <thead>
+        <tr>
+            <th> Date of Entry</th> 
+            <th> Date of Interview </th>
+            <th> PV Sales Name</th>
+            <th> PV Sales Email </th>  
+            <th> PV Sales Phone </th>
+            <th> PV Sales LinkedIn </th>
+            <th> PV Recruiter Name </th>  
+            <th> PV Recruiter Email </th>   
+            <th> PV Recruiter Phone </th>
+            <th> PV Recruiter LinkedIn </th>
+            <th> Skill Set </th>
+            <th>End Client Name</th>
+            <th>EC Hiring Manager</th>
+            <th>EC Hiring Manager LinledIn</th>
+            <th> Candidate Name</th>
+            <th> Candidate Email </th>
+            <th> Candidate Phone </th>
+            <th> Candidate Company Name </th> 
+            <th> Candidate Company Contact </th>
+            <th> SIT Sales Name</th>                      
+            <th> SIT Recruiter Name </th>
+
+            
+        </tr>
+    </thead>
+</table>
+<table class="table table-bordered table-striped ele-sticky-body">
+    <tbody>
+
+        <tr *ngFor="let interview of interviews | search: searchText"
+            [ngClass]="{'btn-primary': interview.summaryId == currentId }">
+            <td>{{interview.dateofEntry}}</td>
+            <td>{{interview.dateofInterview}}</td>
+            <td>{{interview.pvsalesName}}</td>
+            <td>{{interview.pvsalesEmail}}</td>
+            <td>{{interview.pvsalesPhone}}</td>
+            <td>{{interview.pvsalesLinkedIn}}</td>
+            <td>{{interview.pvrecruiterName}}</td>
+            <td>{{interview.pvrecruiterEmail}}</td>
+            <td>{{interview.pvrecruiterPhone}}</td>
+            <td>{{interview.pvrecruiterLinkedIn}}</td>
+            <td>{{interview.skillSet}}</td>
+            <td>{{interview.endClientName}}</td>
+            <td>{{interview.echiringManager}}</td>
+            <td>{{interview.echiringManagerLinkedIn}}</td>
+            <td>{{interview.candidateName}}</td>
+            <td>{{interview.candidateEmail}}</td>
+            <td>{{interview.candidatePhone}}</td>
+            <td>{{interview.candidateCompanyName}}</td>
+            <td>{{interview.candidateCompanyContact}}</td>
+            <td>{{interview.sitsalesName}}</td>
+            <td>{{interview.sitrecruiterName}}</td>
+            
+            <!-- 
+                <td style="width: 155px;">
+                <i class="btn btn-primary" (click)="edit(cust.candidateId)" title="Edit"> Edit </i>
+                <span style="padding: 0 7px;" ></span>
+                <i class="btn btn-danger" (click)="delete(cust.candidateId)"  title="Delete"> Delete</i>
+            </td> -->
+
+        </tr>
+    </tbody>
+</table>
